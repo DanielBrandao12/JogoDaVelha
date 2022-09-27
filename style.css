@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabuleiro{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: solid;
+}
+
+.box{
+    width: 150px;
+    height: 150px;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items:center;
+
+    border: solid;
+}
