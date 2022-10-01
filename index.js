@@ -10,13 +10,26 @@ const p8 = document.getElementById('position8')
 const p9 = document.getElementById('position9')
 
 var array = []
+var player1 =[]
+var player2 =[]
+var postions = [1,2,3,4,5,6,7,8,9]
+var win =[
+    [1,2,3],
+    [4,5,6],
+    [7,8,9],
+    [1,4,7],
+    [2,5,8],
+    [3,6,9],
+    [1,5,9],
+    [3,5,7]
 
-function verficarCasas(p){
+]
+function verficarCasas(p,valor){
 
     if(array == ''){
         p.innerText = 'X'
         array.push('x')
-   
+        player1.push(valor)
       
     }else{
 
@@ -24,61 +37,109 @@ function verficarCasas(p){
             if(array[array.length -1] == 'x'){
                 p.innerText = 'O'
                 array.push('o')
+                
+            
+                    player2.push(valor)
+                
+                
                 return
                
            }else   if(array[array.length -1] == 'o'){
                p.innerText = 'X'
                array.push('x')
+               player1.push(valor)
               return
            }
    
         }
     }
 
-console.log(array)
+
   return array
 }
+
+
 p1.addEventListener('click',e =>{
+    let addPositon = postions.length-8
 
-    verficarCasas(p1)
-
+    verficarCasas(p1 , addPositon)
+    winnerPlayer()
+    
+    
 })
 
 p2.addEventListener('click',e =>{
-verficarCasas(p2)
-
+    let addPositon = postions.length-7
+verficarCasas(p2 , addPositon)
+winnerPlayer()
 })
 
 p3.addEventListener('click',e =>{
+    let addPositon = postions.length-6
+    verficarCasas(p3, addPositon)
+    winnerPlayer()
+    
 
-    verficarCasas(p3)
-
+     
+    
+   
 })
 
 p4.addEventListener('click',e =>{
-verficarCasas(p4)
+    let addPositon = postions.length-5
+verficarCasas(p4, addPositon)
+winnerPlayer()
 
 })
 p5.addEventListener('click',e =>{
-verficarCasas(p5)
+    let addPositon = postions.length-4
+verficarCasas(p5, addPositon)
+winnerPlayer()
 
 })
 p6.addEventListener('click',e =>{
-
-    verficarCasas(p6)
+    let addPositon = postions.length-3
+    verficarCasas(p6, addPositon)
+    winnerPlayer()
 
 })
 
 p7.addEventListener('click',e =>{
-verficarCasas(p7)
+    let addPositon = postions.length-2
+verficarCasas(p7, addPositon)
+winnerPlayer()
 
 })
 p8.addEventListener('click',e =>{
-verficarCasas(p8)
+    let addPositon = postions.length-1
+verficarCasas(p8, addPositon)
+winnerPlayer()
+
 
 })
 
 p9.addEventListener('click',e =>{
-    verficarCasas(p9)
+    let addPositon = postions.length
+    verficarCasas(p9,addPositon)
+    winnerPlayer()
+  
+    })
+
+
+
+function winnerPlayer(){
+    win.forEach((cont)=>{
+        player1.sort()
+        player2.sort()
+        if(cont== player1.toString()){
+            console.log(cont)
+          
+           }else if(cont == player2.toString()) {
+            console.log(cont)
+           }
     
     })
+
+    console.log(player1)
+    console.log(player2)
+}
