@@ -1,5 +1,5 @@
 
-const p1 = document.getElementById('position1')
+/*const p1 = document.getElementById('position1')
 const p2 = document.getElementById('position2')
 const p3 = document.getElementById('position3')
 const p4 = document.getElementById('position4')
@@ -7,12 +7,14 @@ const p5 = document.getElementById('position5')
 const p6 = document.getElementById('position6')
 const p7 = document.getElementById('position7')
 const p8 = document.getElementById('position8')
-const p9 = document.getElementById('position9')
+const p9 = document.getElementById('position9')*/
 
-var array = []
-var player1 =[]
-var player2 =[]
-var postions = [1,2,3,4,5,6,7,8,9]
+
+
+var selected 
+var player="X"
+
+
 var win =[
     [1,2,3],
     [4,5,6],
@@ -24,7 +26,59 @@ var win =[
     [3,5,7]
 
 ]
-function verficarCasas(p,valor){
+
+
+init()
+
+function init(){
+selected= []
+    const tabuleiro = document.querySelectorAll('.tabuleiro div').forEach((item) => {
+        item.innerHTML = "";
+        item.addEventListener("click", newMove);
+      })
+}
+
+
+
+
+  function newMove(e) {
+    const index = e.target.getAttribute("id");
+    e.target.innerHTML = player;
+    e.target.removeEventListener("click", newMove);
+    selected[index] = player;
+  
+    setTimeout(() => {
+      check();
+    }, [100]);
+  
+    player = player === "X" ? "O" : "X";
+   
+  }
+  
+  function check() {
+    let playerLastMove = player === "X" ? "O" : "X";
+  
+    const items = selected
+      .map((item, i) => [item, i])
+      .filter((item) => item[0] === playerLastMove)
+      .map((item) => item[1]);
+  
+    for (pos of win) {
+      if (pos.every((item) => items.includes(item))) {
+        alert("O JOGADOR '" + playerLastMove + "' GANHOU!");
+        init();
+        return;
+      }
+    }
+  
+    if (selected.filter((item) => item).length === 9) {
+      alert("DEU EMPATE!");
+      init();
+      return;
+    }
+  }
+  
+/*function verficarCasas(p,valor){
 
     if(array == ''){
         p.innerText = 'X'
@@ -58,7 +112,10 @@ function verficarCasas(p,valor){
   return array
 }
 
+*/
 
+
+/*
 p1.addEventListener('click',e =>{
     let addPositon = postions.length-8
 
@@ -142,4 +199,4 @@ function winnerPlayer(){
 
     console.log(player1)
     console.log(player2)
-}
+}*/
