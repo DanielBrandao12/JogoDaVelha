@@ -9,18 +9,44 @@
 </head>
 <body>
     <main>
-        <section class="tabuleiro">
-            <div class="box" id="1"></div>
-            <div class="box" id="2"></div>
-            <div class="box" id="3"></div>
-            <div class="box" id="4"></div>
-            <div class="box" id="5"></div>
-            <div class="box" id="6"></div>
-            <div class="box" id="7"></div>
-            <div class="box" id="8"></div>
-            <div class="box" id="9"></div>
-         
-        </section>
+      <h1>Jogo da Velha</h1>
+        <div>
+
+
+            <section class="tabuleiro">
+                <div class="box" id="1"></div>
+                <div class="box" id="2"></div>
+                <div class="box" id="3"></div>
+                <div class="box" id="4"></div>
+                <div class="box" id="5"></div>
+                <div class="box" id="6"></div>
+                <div class="box" id="7"></div>
+                <div class="box" id="8"></div>
+                <div class="box" id="9"></div>
+             
+            </section>
+            <div class="jogador"></div>
+        </div>
+        <aside>
+
+
+            <div class="jogadores">
+            
+                    <label for="">Jogador 1</label>
+                    <input type="text" name="nome" id="jogador1">
+                
+    
+                    <label for="">Jogador 2</label>
+                    <input type="text" name="nome" id="jogador2">
+            
+    
+            </div>
+            <div>
+                <button id="btn-start">Começar</button>
+            </div>
+            
+
+        </aside>
     </main>
 
     <script src="index.js"></script>
